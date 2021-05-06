@@ -71,6 +71,7 @@ const styles = theme => ({
     },
     personalProjectTitleContainer: {
         display: 'flex',
+        marginTop: '70px',
         justifyContent: 'flex-start',
         [theme.breakpoints.down('sm')]: {
             paddingTop: '40px',
