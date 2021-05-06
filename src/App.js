@@ -5,6 +5,7 @@ import { Link, Element, Events, animateScroll as scroller } from 'react-scroll';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import Chip from '@material-ui/core/Chip';
 
 import avatarIcon from './assets/RGB-180612-10061.jpg'
 import angularIcon from './assets/angular-icon.svg';
@@ -23,11 +24,12 @@ import typescriptIcon from './assets/typescript-icon.svg';
 import vscodeIcon from './assets/vscode.svg';
 import img1 from './assets/img1.jpg';
 import img2 from './assets/img2.jpg';
-import img3 from './assets/img3.jpeg';
+import img3 from './assets/img3.JPG';
 import img4 from './assets/img4.jpeg';
-import rideNowVideo from './assets/ride_now_video.mp4';
 import openInNew from './assets/open_in_new-24px.svg';
 import location from './assets/location.svg';
+import rn1 from './assets/rn1.png';
+import rn2 from './assets/rn2.png';
 
 const styles = theme => ({
     sideNav: {
@@ -52,7 +54,7 @@ const styles = theme => ({
     },
     projectXpXard: {
         width: '600px',
-        height: '300px',
+        minHeight: '500px',
         marginTop: '20px',
         [theme.breakpoints.down('sm')]: {
             width: '90%',
@@ -84,6 +86,35 @@ const styles = theme => ({
         [theme.breakpoints.down('sm')]: {
             paddingLeft: '3%',
         }
+    },
+    ridenowImage: {
+        width: '96%',
+        border: '1px solid black',
+        marginLeft: '2%',
+        marginRight: '2%',
+        marginTop: '10px',
+    },
+    headerTitle: {
+        fontSize: '48px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '30px',
+        }
+    },
+    headerSubtitle: {
+        fontSize: '30px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '18px',
+        }
+    },
+    headerSubtitleLocation: {
+        fontSize: '20px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '14px',
+        }
+    },
+    chip: {
+        marginLeft: '5px',
+        marginTop: '1px'
     }
 });
 
@@ -94,6 +125,7 @@ class App extends React.Component {
         shadow3: 3,
         shadow4: 3,
         shadow5: 3,
+        shadow6: 3
     }
 
     componentDidMount() {
@@ -166,15 +198,15 @@ class App extends React.Component {
                 </Menu>
                 <div className={this.props.classes.content}>
                     <Element name="education" className={this.props.classes.contentCectionsFirst}>
-                        <Typography gutterBottom variant="h3" component="h2" className='typography-title'>
+                        <Typography gutterBottom variant="h3" component="h2" className={this.props.classes.headerTitle}>
                             Călin Cara
                         </Typography>
-                        <Typography gutterBottom variant="h6" component="h2" className='typography-title'>
+                        <Typography gutterBottom variant="h6" component="h2" className={this.props.classes.headerSubtitle}>
                             Software developer @ <a href="https://www.msg-systems.ro/" rel="noopener noreferrer" target="_blank">msg systems</a>
                         </Typography>
                         <div className='location-container'>
                             <img src={location} className='location-icon'></img>
-                            <Typography gutterBottom variant="h6" component="h2" className='typography-title'>
+                            <Typography gutterBottom variant="h6" component="h2" className={this.props.classes.headerSubtitleLocation}>
                                 Cluj-Napoca, Romania
                         </Typography>
                         </div>
@@ -216,22 +248,132 @@ class App extends React.Component {
                                 Work projects
                             </Typography>
                             <div className='work-projects-container'>
-                                <Paper className={this.props.classes.projectXpXard} elevation={this.state.shadow1} onMouseOver={() => this.setState({ shadow1: 5 })} onMouseOut={() => this.setState({ shadow1: 3 })}>
+                                <Paper className={this.props.classes.projectXpXard} elevation={this.state.shadow6} onMouseOver={() => this.setState({ shadow6: 10 })} onMouseOut={() => this.setState({ shadow6: 3 })}>
                                     <Typography gutterBottom variant="h5" component="h2" className='typography-title'>
-                                        Loss Management and Reporting (LMR)
-                                </Typography>
+                                        JavaScript/React developer
+                                    </Typography>
                                     <Typography gutterBottom variant="subtitle1" component="h2" className='typography-title'>
-                                        Some description
-                                </Typography>
-                                    <Typography gutterBottom variant="subtitle2" component="h2" className='typography-title'>
-                                        Technologies used: SAP UI5, S/4HANA (CDS Views, BOPF, Gateway services)<br />
-                                        Responsibilities: <br />
-                                        Tasks:
-                                </Typography>
+                                        A React-driven application which uses Highcharts.js charting library to display various backend data sets in an array of chart formats
+                                    </Typography>
+                                    <Typography gutterBottom variant="body1" component="h2" className='typography-title'>
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="JavaScript" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="React" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="TypeScript" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="Highcharts.js" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="Material UI" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="InversifyJS" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="Redux" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="Jest" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="Git" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="yarn" /><br /><br />
+                                        <b>Tasks and responsibilities:</b><br />
+                                        &#x25CF; Implement tasks for processing, parsing and displaying data in various chart types using Highcharts <br />
+                                        &#x25CF; Build and adjust UI controls using React and Material UI<br />
+                                        &#x25CF; Use InversifyJS for dependency injection<br />
+                                        &#x25CF; Write unit tests using Jest<br />
+                                        &#x25CF; Track issues and tasks in Jira<br />
+                                        &#x25CF; Use Git and Bitbucket for versioning control (separate branches per feature/bug approach)<br />
+                                        &#x25CF; Collaborate with an international team of developers, requirements engineers and testers<br />
+                                    </Typography>
                                 </Paper>
-                                <Paper className={this.props.classes.projectXpXard} elevation={this.state.shadow2} onMouseOver={() => this.setState({ shadow2: 5 })} onMouseOut={() => this.setState({ shadow2: 3 })} />
-                                <Paper className={this.props.classes.projectXpXard} elevation={this.state.shadow3} onMouseOver={() => this.setState({ shadow3: 5 })} onMouseOut={() => this.setState({ shadow3: 3 })} />
-                                <Paper className={this.props.classes.projectXpXard} elevation={this.state.shadow4} onMouseOver={() => this.setState({ shadow4: 5 })} onMouseOut={() => this.setState({ shadow4: 3 })} />
+                                <Paper className={this.props.classes.projectXpXard} elevation={this.state.shadow1} onMouseOver={() => this.setState({ shadow1: 10 })} onMouseOut={() => this.setState({ shadow1: 3 })}>
+                                    <Typography gutterBottom variant="h5" component="h2" className='typography-title'>
+                                        SAP UI5 developer
+                                    </Typography>
+                                    <Typography gutterBottom variant="subtitle1" component="h2" className='typography-title'>
+                                        A collection of SAP UI5 web applications for managing and reporting events which are expected to cause
+                                        losses for the reinsurance company
+                                    </Typography>
+                                    <Typography gutterBottom variant="body1" component="h2" className='typography-title'>
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="JavaScript (SAP UI5)" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="SAP NetWeaver ABAP" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="S/4 HANA (CDS Views, BOPF)" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="OData" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="SAP NetWeaver Gateway services" /><br /><br />
+                                        <b>Tasks and responsibilities:</b><br />
+                                        &#x25CF; Develop and maintain UI5 applications and add new features (frontend and backend) <br />
+                                        &#x25CF; Create and maintain business objects and related logic using BOPF framework<br />
+                                        &#x25CF; Create and maintain CDS views and annotations for database access and UI consumption<br />
+                                        &#x25CF; Use SAP UI5 WebIDE and Chrome developer tools to debug and analyse frontend code<br />
+                                        &#x25CF; Create, adjust and maintain word-generated report documents<br />
+                                        &#x25CF; Communication and coordination with colleagues<br />
+                                        &#x25CF; Development testing<br />
+                                        &#x25CF; Bug fixing<br /><br />
+                                    </Typography>
+                                </Paper>
+                                <Paper className={this.props.classes.projectXpXard} elevation={this.state.shadow2} onMouseOver={() => this.setState({ shadow2: 10 })} onMouseOut={() => this.setState({ shadow2: 3 })}>
+                                    <Typography gutterBottom variant="h5" component="h2" className='typography-title'>
+                                        SAP UI5 developer
+                                    </Typography>
+                                    <Typography gutterBottom variant="subtitle1" component="h2" className='typography-title'>
+                                        SAP UI5 ticketing application with the purpose of providing employees ways to notify the appropriate
+                                        groups of people when a problem arises
+                                    </Typography>
+                                    <Typography gutterBottom variant="body1" component="h2" className='typography-title'>
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="JavaScript (SAP UI5)" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="OData" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="S/4 HANA" /><br /><br />
+                                        <b>Tasks and responsibilities:</b><br />
+                                        &#x25CF; Building UI5 XML views and fragments<br />
+                                        &#x25CF; Adding controls to views<br />
+                                        &#x25CF; Event handling of controls<br />
+                                        &#x25CF; Debugging with Chrome Developer Tools<br />
+                                        &#x25CF; Binding and filtering OData models to views<br />
+                                        &#x25CF; Implementing search functionality for controls<br />
+                                        &#x25CF; Internationalization<br />
+                                        &#x25CF; Use of formatters<br />
+                                        &#x25CF; Use of JSDoc for Documentation<br />
+                                    </Typography>
+                                </Paper>
+                                <Paper className={this.props.classes.projectXpXard} elevation={this.state.shadow3} onMouseOver={() => this.setState({ shadow3: 10 })} onMouseOut={() => this.setState({ shadow3: 3 })}>
+                                    <Typography gutterBottom variant="h5" component="h2" className='typography-title'>
+                                        JavaScript (MEAN stack) developer
+                                    </Typography>
+                                    <Typography gutterBottom variant="subtitle1" component="h2" className='typography-title'>
+                                        Focused on building a lightweight web application for a company’s different users in the insurance field
+                                    </Typography>
+                                    <Typography gutterBottom variant="body1" component="h2" className='typography-title'>
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="Angular 4" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="Mongo" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="Express" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="Node.js" /><br /><br />
+                                        <b>Tasks and responsibilities:</b> <br/>
+                                        &#x25CF; Use Angular 4 with Material Design components and Flex Layout to build a responsive, intuitive and modern UI <br />
+                                        &#x25CF; Using MongoDB with Mongoose as the data storage and modeling tool <br />
+                                        &#x25CF; Using Node.js and Express for the middleware business logic <br />
+                                        &#x25CF; Debugging with Chrome Developer Tools <br />
+                                        &#x25CF; Building and customizing Material Design components such as tables with pagination and with filtering in the backend <br />
+                                        &#x25CF; Implementing search functionality for controls <br />
+                                        &#x25CF; Internationalization <br />
+                                        &#x25CF; Using web tokens for authenticating users <br />
+                                        &#x25CF; Using various NPM packages during the development process <br />
+                                    </Typography>
+                                </Paper>
+                                <Paper className={this.props.classes.projectXpXard} elevation={this.state.shadow4} onMouseOver={() => this.setState({ shadow4: 10 })} onMouseOut={() => this.setState({ shadow4: 3 })}>
+                                    <Typography gutterBottom variant="h5" component="h2" className='typography-title'>
+                                        ABAP developer
+                                    </Typography>
+                                    <Typography gutterBottom variant="subtitle1" component="h2" className='typography-title'>
+                                        A project aimed at migrating insurance policies from a primary insurance SAP system to a reinsurance SAP system using a 
+                                        custom mapping framework
+                                    </Typography>
+                                    <Typography gutterBottom variant="body1" component="h2" className='typography-title'>
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="ABAP OOP" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="SAP RFCs" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="BAdI" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="SPRO customizings" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="ABAP Reports" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="ABAP DDIC" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="ABAP Reports" />
+                                        <Chip variant="outlined" className={this.props.classes.chip} label="Views and View Clusters" /><br /><br />
+                                        <b>Tasks and responsibilities:</b> <br/>
+                                        &#x25CF; Mapping rules framework development, customizing and code refactoring for increased performance <br />
+                                        &#x25CF; Change requests implementation and testing <br />
+                                        &#x25CF; Parallelization – development, customizing and testing using Framework for Parallel Processing (FPP) <br />
+                                        &#x25CF; SPRO Enhancement with customer-specific nodes <br />
+                                        &#x25CF; Message logging and error handling <br />
+                                    </Typography>
+                                </Paper>
                             </div>
                         </div>
                     </Element>
@@ -240,7 +382,7 @@ class App extends React.Component {
                             <Typography gutterBottom variant="h4" component="h2">
                                 Personal projects
                             </Typography>
-                            <Paper className={this.props.classes.personalProjectContainer} elevation={this.state.shadow5} onMouseOver={() => this.setState({ shadow5: 5 })} onMouseOut={() => this.setState({ shadow5: 3 })}>
+                            <Paper className={this.props.classes.personalProjectContainer} elevation={this.state.shadow5} onMouseOver={() => this.setState({ shadow5: 10 })} onMouseOut={() => this.setState({ shadow5: 3 })}>
                                 <div className='project-container'>
                                     <div className={this.props.classes.personalProjectTitleContainer}>
                                         <Typography gutterBottom variant="h5" component="h2" className='typography-title'>
@@ -259,7 +401,8 @@ class App extends React.Component {
                                         </div>
 
                                     </Typography>
-                                    <video src={rideNowVideo} autoPlay loop className='project-video'></video>
+                                    <img src={rn1} className={this.props.classes.ridenowImage}></img>
+                                    <img src={rn2} className={this.props.classes.ridenowImage}></img>
                                 </div>
                             </Paper>
                         </div>
